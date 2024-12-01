@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+setopt extendedglob
+
+cd "day$1"
+
+# Handle deno days
+if [[ -n *.ts(#qN) ]]; then
+    deno eval --ext=ts "await import('./part$2.ts').then(m => m.solve()).then(s => console.log('The solution is', s))"
+fi
