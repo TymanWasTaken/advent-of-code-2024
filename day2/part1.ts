@@ -1,5 +1,5 @@
 export async function solve() {
-    return await Deno.readTextFile("./input.txt").then((f) =>
+    return await Deno.readTextFile(import.meta.dirname + "/input.txt").then((f) =>
         f.split("\n").filter((l) => {
             const report = l.split(" ").map((s) => +s);
             const increasing = report[0] < report[1];

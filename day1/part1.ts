@@ -1,5 +1,5 @@
 export async function solve() {
-    return await Deno.readTextFile("./input.txt").then(
+    return await Deno.readTextFile(import.meta.dirname + "/input.txt").then(
         (f) =>
             f.split("\n").reduce<[number[], number[]]>(
                 (

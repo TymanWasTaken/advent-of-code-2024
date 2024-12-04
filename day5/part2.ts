@@ -22,7 +22,7 @@ function validate(rules: [string, string][], pageGroup: string[]): [boolean, nul
 }
 
 export async function solve() {
-    const [rules, pages] = await Deno.readTextFile("./input.txt")
+    const [rules, pages] = await Deno.readTextFile(import.meta.dirname + "/input.txt")
         .then(i => i
             .split("\n\n")
         ).then(([rules, pages]) => [

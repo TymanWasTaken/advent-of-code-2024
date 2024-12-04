@@ -10,6 +10,7 @@
                 packages = with pkgs; [
                     deno
                     kotlin
+                    libsecret
                 ];
             };
         });

@@ -1,5 +1,5 @@
 export async function solve() {
-    const grid = await Deno.readTextFile("./input.txt").then(i => i.split("\n").map(l => l.split("")));
+    const grid = await Deno.readTextFile(import.meta.dirname + "/input.txt").then(i => i.split("\n").map(l => l.split("")));
     let sum = 0;
 
     for (const [y, line] of grid.map((e, i) => [i, e] as const)) {
