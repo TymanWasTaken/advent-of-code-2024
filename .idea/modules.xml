@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/aoc2024.iml" filepath="$PROJECT_DIR$/.idea/aoc2024.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/pkgs/development/development.iml" filepath="$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/pkgs/development/development.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/nixos/nixos.iml" filepath="$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/nixos/nixos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/pkgs/pkgs-lib/pkgs-lib.iml" filepath="$PROJECT_DIR$/.direnv/flake-inputs/ab78nf3ad8ly49zfyd3igw3f2n5q7fz4-source/pkgs/pkgs-lib/pkgs-lib.iml" />
+    </modules>
+  </component>
+</project>
