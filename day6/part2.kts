@@ -100,14 +100,14 @@ originalGrid.forEachIndexed rowLoop@{ i, row ->
 
         print(
             // Clear line
-            "\r                                          " +
+            "                                          " +
                     // Print status
                     "\rChecked row ${
                         i.toString().padStart(3, ' ')
                     } column ${j.toString().padStart(3, ' ')} (${
                         (((i * row.size + j + 1) * 100) / (originalGrid.size * originalGrid[0].size)).toString()
                             .padStart(3, ' ')
-                    }%)"
+                    }%)\r"
         )
     }
 }
