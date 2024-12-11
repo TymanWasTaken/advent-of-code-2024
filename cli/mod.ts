@@ -1,4 +1,6 @@
 #!/usr/bin/env deno
+import * as secrets from "./secrets.ts";
+
 import * as path from "@std/path";
 import * as ini from "@std/ini";
 
@@ -190,19 +192,7 @@ if (import.meta.main) {
 							console.error("Multiple advent of code session cookies were found??");
 							Deno.exit(1);
 						} else {
-							const process = new Deno.Command("secret-tool", {
-								args: [
-									"store",
-									"--label",
-									"Advent Of Code Session Token",
-									"token",
-									"value"
-								],
-								stdin: "piped"
-							}).spawn();
-							const stdin = process.stdin.getWriter();
-							await stdin.write(new TextEncoder().encode(rows[0].value));
-							await stdin.close();
+							await secrets.saveToken(rows[0].value);
 							console.log("Token saved!");
 						}
 
@@ -214,12 +204,36 @@ if (import.meta.main) {
 		)
 		.reset()
 		.command(
-			"input [day:number]",
-			"Fetches the input for one day (or all if day # omitted) and writes to input.txt files"
+			"input <day:number>",
+			"Fetches the input for one day and writes to a dayN/input.txt file"
 		)
-		.action((_: unknown, day: number | undefined) => {
-			if (day != undefined) {
+		.option(
+			"-o, --output [path:string]",
+			"The location to output the text to",
+			{
+				
+			}
+		)
+		.action(async ({ output }, day: number | undefined) => {
+			if (Date.now() < new Date(`Dec ${day} 2024 00:00:00 GMT-0500`).getTime()) {
+				console.error("Can't fetch an input for an unreleased day!");
+				Deno.exit(1);
+			}
 
+			const token = await secrets.readToken();
+			if (day != undefined) {
+				const inputResponse = await fetch(`https://adventofcode.com/2024/day/${day}/input`, {
+					headers: {
+						cookie: `session=${token}`,
+						'user-agent': "Ty's Advent of Code CLI (https://git.myriation.xyz/Ty/advent-of-code-2024)"
+					}
+				});
+				
+				if (inputResponse.status === 200) {
+					console.log(await inputResponse.text())
+				} else {
+					console.log(`Error fetching input for day ${day}:\n\n${await inputResponse.text()}`)
+				}
 			}
 		})
 		.parse(Deno.args);

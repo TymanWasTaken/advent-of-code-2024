@@ -1,3 +1,9 @@
+/**
+ * There is no proper OS-secrets library for deno (or even nodejs!) so this is a
+ * jank way to get around that on linux at least
+ */
+import * as io from "@std/io";
+
 export async function saveToken(token: string) {
     const process = new Deno.Command("secret-tool", {
         args: [
@@ -15,17 +21,13 @@ export async function saveToken(token: string) {
 }
 
 export async function readToken() {
-    const process = new Deno.Command("secret-tool", {
+    const { stdout } = await new Deno.Command("secret-tool", {
         args: [
             "lookup",
             "aoc-deno",
             "token"
         ],
         stdout: "piped"
-    }).spawn();
-    const decoderStream = new TextDecoderStream();
-    const stdout = process.stdout.pipeTo(decoderStream.writable);
-    for await (const v of decoderStream.readable.values()) {
-        console.log(v);
-    }
+    }).spawn().output();
+    return new TextDecoder().decode(stdout);
 }
