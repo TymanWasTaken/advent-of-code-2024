@@ -2,3 +2,4 @@
 **/example.txt
 .direnv
 node_modules
+target

@@ -1,0 +1,8 @@
+[package]
+name = "aoc2024"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "d11p2"
+path = "day11/part2.rs"
