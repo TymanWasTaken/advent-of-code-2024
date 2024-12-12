@@ -6,3 +6,7 @@ edition = "2021"
 [[bin]]
 name = "d11p2"
 path = "day11/part2.rs"
+
+[[bin]]
+name = "d12p1"
+path = "day12/part1.rs"
