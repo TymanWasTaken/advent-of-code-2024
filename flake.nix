@@ -19,6 +19,7 @@
                         extensions = [ "rust-src" "rustfmt" ];
                         targets = [ "x86_64-unknown-linux-gnu" ];
                     }))
+                    evcxr
                 ];
             };
         });
