@@ -230,7 +230,7 @@ if (import.meta.main) {
 				});
 				
 				if (inputResponse.status === 200) {
-					console.log(await inputResponse.text())
+					Deno.stdout.write(await inputResponse.bytes())
 				} else {
 					console.log(`Error fetching input for day ${day}:\n\n${await inputResponse.text()}`)
 				}

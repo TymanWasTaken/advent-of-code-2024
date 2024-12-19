@@ -3,6 +3,11 @@ name = "aoc2024"
 version = "0.1.0"
 edition = "2021"
 
+[dependencies]
+itertools = "0.13.0"
+num-derive = "0.4.2"
+num-traits = "0.2.19"
+
 [[bin]]
 name = "d11p2"
 path = "day11/part2.rs"
@@ -30,3 +35,11 @@ path = "day15/part1.rs"
 [[bin]]
 name = "d15p2"
 path = "day15/part2.rs"
+
+[[bin]]
+name = "d17p1"
+path = "day17/part1.rs"
+
+[[bin]]
+name = "d17p2"
+path = "day17/part2.rs"
